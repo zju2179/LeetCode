@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include<algorithm>
+#include <algorithm>
 using namespace std;
 
 int main()
@@ -20,7 +20,7 @@ int main()
     //     {
     //         v.push_back(stoi(str));
     //     }
-        
+
     //     // printVector(v);
     //     if(v.empty())
     //         break;
@@ -33,21 +33,21 @@ int main()
     // 4 5
     // 6 9 1 7 8 2
     int val;
-    while(cin >> val)
+    while (cin >> val)
     {
         v.push_back(val);
-        if(getchar() == '\n')
-        {   
+        if (getchar() == '\n')
+        {
             v.clear();
         }
         nums.push_back(v);
     }
-    cout<<"Man! What can I say?"<<endl;
-    for(vector<int> a: nums)
+    cout << "做一个 git 测试" << endl;
+    for (vector<int> a : nums)
     {
-        for(int x: a)
-            cout<<x<<" ";
-        cout<<endl;
+        for (int x : a)
+            cout << x << " ";
+        cout << endl;
     }
 
     return 0;
