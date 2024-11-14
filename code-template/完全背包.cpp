@@ -11,13 +11,13 @@ int choice[N][V];
 
 int dfs(int i, int j)
 {
-    if (i < 0 || j < 0)
+    if (i <= 0 || j < 0)
         return 0;
     if (dp[i][j] != -1)
         return dp[i][j];
     int res = dfs(i - 1, j);
-    if (j >= w[i])
-        res = max(res, dfs(i - 1, j - w[i]) + c[i]);
+    for (int k = 1; j - k * w[i] >= 0; k++)
+        res = max(res, dfs(i - 1, j - k * w[i]) + k * c[i]);
     return dp[i][j] = res;
 }
 
@@ -29,27 +29,31 @@ int main()
         cin >> w[i];
     for (int i = 1; i <= n; i++)
         cin >> c[i];
-    // cout << dfs(n - 1, v) << endl;
+    // cout << dfs(n, v) << endl;
     for (int i = 1; i <= n; i++)
     {
         for (int j = v; j >= 0; j--)
         {
             dp[i][j] = dp[i - 1][j];
-            if (j - w[i] >= 0 && dp[i - 1][j - w[i]] + c[i] > dp[i][j])
+            for (int k = 1; j - k * w[i] >= 0; k++)
             {
-                dp[i][j] = dp[i - 1][j - w[i]] + c[i];
-                choice[i][j]++;
+                if (dp[i][j] < dp[i - 1][j - k * w[i]] + k * c[i])
+                {
+                    dp[i][j] = dp[i - 1][j - k * w[i]] + k * c[i];
+                    choice[i][j] = k;
+                }
             }
         }
     }
     vector<int> res;
-    // cout << dp[n][v] << endl;
+    cout << dp[n][v] << endl;
     for (int i = n, j = v; i >= 1; i--)
     {
         if (choice[i][j] > 0)
         {
-            res.push_back(i);
-            j -= w[i];
+            for (int k = 0; k < choice[i][j]; k++)
+                res.push_back(i);
+            j -= choice[i][j] * w[i];
         }
     }
     bool isfirst = true;
