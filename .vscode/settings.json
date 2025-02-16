@@ -47,6 +47,9 @@
         "typeinfo": "cpp",
         "set": "cpp",
         "unordered_set": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "fstream": "cpp"
     }
 }
