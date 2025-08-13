@@ -24,20 +24,21 @@ using namespace std;
 int main(){
     string line;
     while(getline(cin, line)){
-        istringstream iss(line);
-        string word;
-        vector<string> words;
-        while(iss >> word){
-            words.push_back(word);
-        }
-        sort(words.begin(), words.end());
-        for(int i = 0; i < words.size(); i++){
-            cout<<words[i];
-            if(i < words.size() - 1){
-                cout<<" ";
-            }
-        }
-        cout<<endl;
+        cout<<line<<endl;
+        // istringstream iss(line);
+        // string word;
+        // vector<string> words;
+        // while(iss >> word){
+        //     words.push_back(word);
+        // }
+        // // sort(words.begin(), words.end());
+        // // for(int i = 0; i < words.size(); i++){
+        // //     cout<<words[i];
+        // //     if(i < words.size() - 1){
+        // //         cout<<" ";
+        // //     }
+        // // }
+        // // cout<<endl;
     }
     return 0;
 }
